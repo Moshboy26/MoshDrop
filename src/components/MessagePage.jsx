@@ -15,11 +15,12 @@ export default function MessagePage() {
     setLoading(true);
     setError('');
     try {
-      const res = await fetch('https://mosh-drop.vercel.app/api/send-message', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text }),
-      });
+      const res = await fetch('/api/send-message', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ text }),
+});
+
       const data = await res.json();
       if (data.success) {
         setSent(true);
